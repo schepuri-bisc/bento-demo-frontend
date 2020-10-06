@@ -2,42 +2,31 @@ import gql from 'graphql-tag';
 
 // --------------- Dashboard Sidebar Filters configuration --------------
 // A maximum of 12 facetSearchData are allowed
+
 export const facetSearchData = [
   {
     label: 'Program', field: 'group', api: 'subjectCountByProgram', datafield: 'program', show: true,
   },
   {
-    label: 'Arm', field: 'group', api: 'subjectCountByStudy', datafield: 'study_info', show: true,
+    label: 'Project', field: 'group', api: 'subjectCountByProject', datafield: 'project_info', show: true,
   },
   {
-    label: 'Diagnosis', field: 'group', api: 'subjectCountByDiagnoses', datafield: 'diagnosis', show: true,
+    label: 'Gender', field: 'group', api: 'subjectCountByGender', datafield: 'gender', show: true,
   },
   {
-    label: 'Recurrence Score', field: 'group', api: 'subjectCountByRecurrenceScore', datafield: 'recurrence_score', show: true,
+    label: 'Race', field: 'group', api: 'subjectCountByRace', datafield: 'race', show: true,
   },
   {
-    label: 'Tumor Size', field: 'group', api: 'subjectCountByTumorSize', datafield: 'tumor_size', show: true,
+    label: 'Ethnicity', field: 'group', api: 'subjectCountByEthnicity', datafield: 'ethnicity', show: true,
   },
   {
-    label: 'Chemotherapy Regimen', field: 'group', api: 'subjectCountByChemotherapyRegimen', datafield: 'chemotherapy', show: true,
+    label: 'Vital Status', field: 'group', api: 'subjectCountByVitalStatus', datafield: 'vital_status', show: true,
   },
   {
-    label: 'Tumor Grade', field: 'group', api: 'subjectCountByTumorGrade', datafield: 'tumor_grade', show: true,
+    label: 'Tumor Stage', field: 'group', api: 'subjectCountByTumorStage', datafield: 'tumor_stage', show: true,
   },
   {
-    label: 'ER Status', field: 'group', api: 'subjectCountByErStatus', datafield: 'er_status', show: true,
-  },
-  {
-    label: 'PR Status', field: 'group', api: 'subjectCountByPrStatus', datafield: 'pr_status', show: true,
-  },
-  {
-    label: 'Chemotherapy', field: 'group', api: 'subjectCountByChemotherapyRegimen', datafield: 'chemotherapy', show: true,
-  },
-  {
-    label: 'Endocrine Therapy', field: 'group', api: 'subjectCountByEndocrineTherapy', datafield: 'endocrine_therapy', show: true,
-  },
-  {
-    label: 'Menopause Status', field: 'group', api: 'subjectCountByMenopauseStatus', datafield: 'menopause_status', show: true,
+    label: 'Sample Type', field: 'group', api: 'subjectCountBySampletype', datafield: 'sample_type', show: true,
   },
 ];
 
@@ -46,45 +35,45 @@ export const facetSearchData = [
 export const widgetsData = [
   {
     type: 'sunburst',
-    label: 'Programs and Arms',
+    label: 'Program and Project',
     dataName: 'armsByPrograms',
     datatable_level1_field: 'program',
-    datatable_level2_field: 'study_acronym',
+    datatable_level2_field: 'gender',
     show: true,
   },
   {
     type: 'donut',
-    label: 'Diagnosis',
-    dataName: 'subjectCountByDiagnoses',
-    datatable_field: 'diagnosis',
+    label: 'Gender',
+    dataName: 'subjectCountByGender',
+    datatable_field: 'gender',
     show: true,
   },
   {
     type: 'donut',
-    label: 'Recurrence Score',
-    dataName: 'subjectCountByRecurrenceScore',
-    datatable_field: 'recurrence_score',
+    label: 'Race',
+    dataName: 'subjectCountByRace',
+    datatable_field: 'race',
     show: true,
   },
   {
     type: 'donut',
-    label: 'Tumor Size',
-    dataName: 'subjectCountByTumorSize',
-    datatable_field: 'tumor_size',
+    label: 'Vital Status',
+    dataName: 'subjectCountByVitalStatus',
+    datatable_field: 'vital_status',
     show: true,
   },
   {
     type: 'donut',
-    label: 'Chemotherapy',
-    dataName: 'subjectCountByChemotherapyRegimen',
-    datatable_field: 'chemotherapy',
+    label: 'Tumor Stage',
+    dataName: 'subjectCountByTumorStage',
+    datatable_field: 'tumor_stage',
     show: true,
   },
   {
     type: 'donut',
-    label: 'Endocrine Therapy',
-    dataName: 'subjectCountByEndocrineTherapy',
-    datatable_field: 'endocrine_therapy',
+    label: 'Sample Type',
+    dataName: 'subjectCountBySampletype',
+    datatable_field: 'sample_type',
     show: true,
   },
 ];
@@ -110,64 +99,58 @@ export const dashboardTable = {
       display: true,
     },
     {
-      dataField: 'program',
-      header: 'Program Code',
+      dataField: 'program_id',
+      header: 'Program Acronym',
       sort: 'asc',
       link: '/program/{program_id}',
       display: true,
     },
     {
-      dataField: 'program_id',
-      header: 'Program ID',
+      dataField: 'project_acronym',
+      header: 'Project Acronym',
       sort: 'asc',
       display: false,
     },
     {
-      dataField: 'study_acronym',
-      header: 'Arm',
+      dataField: 'project_acronym',
+      header: 'Project Name',
       sort: 'asc',
-      link: '/arm/{study_acronym}',
+      link: '/arm/{project_acronym}',
       display: true,
     },
     {
-      dataField: 'diagnosis',
-      header: 'Diagnosis',
-      sort: 'asc',
-      display: true,
-    },
-    {
-      dataField: 'recurrence_score',
-      header: 'Recurrence Score',
+      dataField: 'gender',
+      header: 'Gender',
       sort: 'asc',
       display: true,
     },
     {
-      dataField: 'tumor_size',
-      header: 'Tumor Size (cm)',
+      dataField: 'race',
+      header: 'Race',
       sort: 'asc',
       display: true,
     },
     {
-      dataField: 'er_status',
-      header: 'ER Status',
+      dataField: 'ethnicity',
+      header: 'Ethnicity',
       sort: 'asc',
       display: true,
     },
     {
-      dataField: 'pr_status',
-      header: 'PR Status',
+      dataField: 'age',
+      header: 'Age',
       sort: 'asc',
       display: true,
     },
     {
-      dataField: 'age_at_index',
-      header: 'Age (years)',
+      dataField: 'tumor_stage',
+      header: 'Tumor Stage',
       sort: 'asc',
       display: true,
     },
     {
-      dataField: 'survival_time',
-      header: 'Survival (days)',
+      dataField: 'vital_status',
+      header: 'Vital Status',
       sort: 'asc',
       display: true,
     },
@@ -177,117 +160,97 @@ export const dashboardTable = {
 // --------------- Dashboard Query configuration --------------
 export const GET_DASHBOARD_DATA_QUERY = gql`{
   numberOfPrograms
-  numberOfStudies
+  numberOfProjects
   numberOfSubjects
   numberOfSamples
   numberOfLabProcedures
   numberOfFiles
-  subjectCountByProgram{
-        group
-        subjects
-      }
-    subjectCountByStudy{
-        group
-        subjects
-      }
-    subjectCountByDiagnoses{
-        group
-        subjects
-      }
-    subjectCountByRecurrenceScore{
-        group
-        subjects
-      }
-    subjectCountByTumorSize{
-        group
-        subjects
-      }
-    subjectCountByChemotherapyRegimen{
-        group
-        subjects
-      }
-    subjectCountByTumorGrade{
-        group
-        subjects
-      }
-  subjectCountByErStatus{
-        group
-        subjects
-      }
-  subjectCountByPrStatus{
-        group
-        subjects
-      }
-  subjectCountByMenopauseStatus{
-        group
-        subjects
-      }
-  subjectCountByChemotherapyRegimen{
-        group
-        subjects
-      }
-      subjectCountByEndocrineTherapy{
+  subjectCountByProgram {
     group
     subjects
-  }
-    armsByPrograms {
-        program
-        caseSize
-        children {
-            arm
-            caseSize
-            size
-        }
-    }
-    subjectOverViewPaged(first: 100) {
-      subject_id
-      program_id
-      study_info
-      samples
+}
+subjectCountByProject {
+    group
+    subjects
+}
+
+subjectCountByGender {
+    group
+    subjects
+}
+subjectCountByRace {
+    group
+    subjects
+}
+subjectCountByEthnicity {
+    group
+    subjects
+}
+subjectCountByVitalStatus {
+    group
+    subjects
+}
+subjectCountByTumorStage{
+    group
+    subjects
+}
+subjectCountBySampletype{
+    group
+    subjects
+}
+
+  armsByPrograms {
       program
-      study_acronym
-      diagnosis
-      recurrence_score
-      tumor_size
-      tumor_grade
-      er_status
-      pr_status
-      chemotherapy
-      endocrine_therapy
-      menopause_status
-      age_at_index
-      survival_time
-      lab_procedures
-      files{
-        file_id
+      caseSize
+      children {
+          arm
+          caseSize
+          size
       }
+
   }
+
+subjectOverViewPaged(first: 100) {
+  subject_id,
+  program,
+  program_id,
+  project_acronym,
+  tumor_stage,
+  gender,
+  race,
+  ethnicity,
+  vital_status,
+  sample_type,
+  lab_procedures,
+  samples,
+  age,
+  project_info,
+  files {
+        file_id
+  }
+}
   }`;
 
 // --------------- Dashboard Query configuration --------------
 export const GET_DASHBOARD_TABLE_DATA_QUERY = gql`{
 
-  subjectOverViewPaged(first: 1000000) {
-      subject_id
-      program_id
-      study_info
-      samples
-      program
-      study_acronym
-      diagnosis
-      recurrence_score
-      tumor_size
-      tumor_grade
-      er_status
-      pr_status
-      chemotherapy
-      endocrine_therapy
-      menopause_status
-      age_at_index
-      survival_time
-      lab_procedures
-      files{
-        file_id
-      }
-  }
+  subjectOverViewPaged(first: 10000) {
+    subject_id,
+    program,
+    program_id,
+    project_acronym,
+    tumor_stage,
+    gender,
+    race,
+    ethnicity,
+    vital_status,
+    sample_type,
+    lab_procedures,
+    samples,
+    age,
+    project_info,
+    files {
+          file_id
+    }
+}
   }`;

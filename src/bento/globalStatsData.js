@@ -9,10 +9,10 @@ export const globalStatsData = [
     statAPI: 'numberOfPrograms',
   },
   {
-    statTitle: 'Arms',
-    datatable_field: 'study_acronym',
+    statTitle: 'Projects',
+    datatable_field: 'project_acronym',
     type: 'field',
-    statAPI: 'numberOfStudies',
+    statAPI: 'numberOfProjects',
   },
   {
     statTitle: 'Cases',
@@ -44,7 +44,7 @@ export const globalStatsData = [
 // --------------- GraphQL query - Retrieve stats details --------------
 export const GET_GLOBAL_STATS_DATA_QUERY = gql`{
   numberOfPrograms
-  numberOfStudies
+  numberOfProjects
   numberOfSubjects
   numberOfSamples
   numberOfLabProcedures
