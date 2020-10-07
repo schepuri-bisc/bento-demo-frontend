@@ -67,14 +67,14 @@ const table = {
 // --------------- GraphQL query - Retrieve program info --------------
 const GET_PROGRAMS_DATA_QUERY = gql`{
   programInfo {
- program_acronym
- program_id
- program_name
- start_date
- end_date
- pubmed_id
- num_studies
- num_subjects
+    program_acronym
+    program_id
+    program_name
+    start_date
+    end_date
+    pubmed_id
+    num_projects
+    num_subjects
  }
 }
  `;

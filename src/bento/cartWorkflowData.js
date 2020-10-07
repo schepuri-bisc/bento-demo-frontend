@@ -44,27 +44,25 @@ query subjectsInList($subject_ids: [String!]!) {
   subjectsInList(subject_ids: $subject_ids) {
     subject_id,
     program,
-    program_id,
     project_acronym,
-    tumor_stage,
+    project_name,
     gender,
     race,
-    ethnicity,
-    vital_status,
-    sample_type,
-    lab_procedures,
-    samples,
+    eithnicity,
+    age_at_index,
+    tumor_stage,
+    vital_status
 }
 filesOfSubjects(subject_ids: $subject_ids) {
-   subject_id
-    file_description
-    file_format
-    file_name
-    file_size
-    file_type
-    association
-    file_id
-    md5sum
+  subject_id
+  file_name
+  file_type
+  association
+  file_description
+  file_format
+  file_size
+  file_id
+  md5sum
 }
 
 }`;

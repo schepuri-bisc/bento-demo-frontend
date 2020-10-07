@@ -99,10 +99,10 @@ export const dashboardTable = {
       display: true,
     },
     {
-      dataField: 'program_id',
+      dataField: 'program',
       header: 'Program Acronym',
       sort: 'asc',
-      link: '/program/{program_id}',
+      link: '/program/{program}',
       display: true,
     },
     {
