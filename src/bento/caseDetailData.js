@@ -26,13 +26,13 @@ const leftPanel = [
         // external links must have URL scheme part such as "https://"
       },
       {
-        label: 'Arm',
-        dataField: 'study_acronym',
-        link: '/arm/{study_acronym}',
+        label: 'Project',
+        dataField: 'project_acronym',
+        link: '/project/{project_acronym}',
       },
       {
-        label: 'Arm Description',
-        dataField: 'study_name',
+        label: 'Project Description',
+        dataField: 'project_name',
       },
     ],
   },

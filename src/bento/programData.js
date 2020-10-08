@@ -54,8 +54,8 @@ const table = {
       link: 'https://pubmed.ncbi.nlm.nih.gov/{pubmed_id}',
     },
     {
-      dataField: 'num_studies',
-      header: 'Number of ARMs',
+      dataField: 'num_projects',
+      header: 'Number of Projects',
     },
     {
       dataField: 'num_subjects',

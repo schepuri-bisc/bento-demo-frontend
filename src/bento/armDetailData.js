@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 
 // -------------- Case ID area configurations --------------
 const header = {
-  label: 'Arm',
+  label: 'Project',
   dataField: 'project_acronym',
 };
 

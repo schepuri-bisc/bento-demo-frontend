@@ -115,7 +115,7 @@ export const dashboardTable = {
       dataField: 'project_acronym',
       header: 'Project Acronym',
       sort: 'asc',
-      link: '/arm/{project_acronym}',
+      link: '/project/{project_acronym}',
       display: true,
     },
     {

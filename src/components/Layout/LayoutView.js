@@ -56,7 +56,7 @@ const Layout = ({ classes, isSidebarOpened }) => (
 
             <Route path="/program/:id" component={ProgramDetail} />
             <Route path="/case/:id" component={CaseDetail} />
-            <Route path="/arm/:id" component={ArmDetail} />
+            <Route path="/project/:id" component={ArmDetail} />
             {aboutPageRoutes.map(
               (aboutPageRoute) => <Route path={aboutPageRoute} component={About} />,
             )}

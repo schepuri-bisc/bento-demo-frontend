@@ -186,7 +186,7 @@ const ArmDetail = ({ data, classes }) => {
                 {/* Diagnosis donut */}
                 <div className={classes.widgetContainer}>
                   <Widget
-                    title="Diagnosis"
+                    title="Sample Types"
                     color="#0296C9"
                     bodyClass={classes.fullHeightBody}
                     className={classes.card}
