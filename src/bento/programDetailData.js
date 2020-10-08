@@ -94,9 +94,9 @@ const table = {
   // Set 'display' to false to hide the table entirely
   display: true,
   // Table title
-  title: 'ARMS',
+  title: 'PROJECTS',
   // Field name for table data, need to be updated only when using a different GraphQL query
-  dataField: 'studies',
+  dataField: 'projects',
   // Value must be one of the 'field' in columns
   defaultSortField: 'study_acronym',
   // 'asc' or 'desc'
@@ -104,21 +104,21 @@ const table = {
   // A maximum of 10 columns are allowed
   columns: [
     {
-      dataField: 'study_acronym',
-      header: 'Arm',
-      link: '/arm/{study_acronym}',
+      dataField: 'project_acronym',
+      header: 'Project',
+      link: '/arm/{project_acronym}',
     },
     {
-      dataField: 'study_name',
-      header: 'Arm Name',
+      dataField: 'project_name',
+      header: 'Project Name',
     },
     {
-      dataField: 'study_full_description',
-      header: 'Arm Description',
+      dataField: 'project_full_description',
+      header: 'Project Description',
     },
     {
-      dataField: 'study_type',
-      header: 'Arm Type',
+      dataField: 'project_type',
+      header: 'Project Type',
     },
     {
       dataField: 'num_subjects',
@@ -141,14 +141,13 @@ query programDetail($program_id: String!) {
     num_files
     num_samples
     num_lab_procedures
-    disease_subtypes
-    studies { 
-      study_name
-      study_type
-      study_acronym
-      study_info
-      study_full_description
-      num_subjects
+    projects {
+        project_acronym,
+        project_name,
+        project_info,
+        project_full_description,
+        project_type,
+        num_subjects
     }
   }
 }`;

@@ -93,7 +93,7 @@ const ProgramView = ({ classes, data, theme }) => {
 
   const stat = {
     numberOfPrograms: 1,
-    numberOfStudies: 1,
+    numberOfProjects: 1,
     numberOfSubjects: programData.num_subjects !== undefined ? programData.num_subjects : 'undefined',
     numberOfSamples: programData.num_samples !== undefined ? programData.num_samples : 'undefined',
     numberOfLabProcedures: programData.num_lab_procedures !== undefined ? programData.num_lab_procedures : 'undefined',

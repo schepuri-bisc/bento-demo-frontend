@@ -194,7 +194,7 @@ const ArmDetail = ({ data, classes }) => {
                     noPaddedTitle
                   >
                     <CustomActiveDonut
-                      data={data.diagnoses}
+                      data={data.sample_types}
                       width={208}
                       height={210}
                       innerRadius={50}

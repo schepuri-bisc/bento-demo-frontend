@@ -3,7 +3,7 @@ import gql from 'graphql-tag';
 // -------------- Case ID area configurations --------------
 const header = {
   label: 'Arm',
-  dataField: 'study_acronym',
+  dataField: 'project_acronym',
 };
 
 // --------------- Data panel configuration --------------
@@ -15,8 +15,8 @@ const subsections = [
       // Each object here represents a set of label:value pair of a property
       // A maximum of 10 properties are allowed
       {
-        label: 'Arm',
-        dataField: 'study_acronym',
+        label: 'Project',
+        dataField: 'project_acronym',
         // link property specify URL value should link to
         // space holder "{study_acronym}" will be replaced by
         // actual value in the property program_id
@@ -26,16 +26,16 @@ const subsections = [
         // external links must have URL scheme part such as "https://"
       },
       {
-        label: 'Arm Name',
-        dataField: 'study_name',
+        label: 'Project Name',
+        dataField: 'project_name',
       },
       {
-        label: 'Arm Type',
-        dataField: 'study_type',
+        label: 'Project Type',
+        dataField: 'project_type',
       },
       {
-        label: 'Arm Description',
-        dataField: 'study_full_description',
+        label: 'Project Description',
+        dataField: 'project_full_description',
       },
     ],
   },
@@ -90,34 +90,33 @@ const table = {
 // query name, also used as root of returned data
 const dataRoot = 'armDetail';
 // Primary ID field used to query a case
-const armIDField = 'study_acronym';
+const armIDField = 'project_acronym';
 // GraphQL query to retrieve detailed info for a case
 const GET_ARM_DETAIL_DATA_QUERY = gql`
-  query armDetail($study_acronym: String) {
-    armDetail(study_acronym: $study_acronym) {
-      study_acronym
-      study_name
-      study_type
-      study_full_description
-      study_info
+  query armDetail($project_acronym: String) {
+    armDetail(project_acronym: $project_acronym) {
+      project_acronym
+      project_name
+      project_type
+      project_full_description
       num_subjects
       num_files
       num_samples
       num_lab_procedures
-      diagnoses {
+      sample_types {
         group
         subjects
       }
       files {
-        file_name
-        file_type
-        file_description
-        file_format
-        file_size
-        file_id
-        md5sum
+          file_name
+          file_type
+          file_description
+          file_format
+          file_size
+          file_id
+          md5sum
       }
-    }
+  }
   }
 `;
 

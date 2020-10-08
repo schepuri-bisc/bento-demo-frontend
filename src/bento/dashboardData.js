@@ -5,7 +5,7 @@ import gql from 'graphql-tag';
 
 export const facetSearchData = [
   {
-    label: 'Program', field: 'group', api: 'subjectCountByProgram', datafield: 'program', show: true,
+    label: 'Program', field: 'group', api: 'subjectCountByProgram', datafield: 'program_acronym', show: true,
   },
   {
     label: 'Project', field: 'group', api: 'subjectCountByProject', datafield: 'project_info', show: true,
@@ -26,7 +26,7 @@ export const facetSearchData = [
     label: 'Tumor Stage', field: 'group', api: 'subjectCountByTumorStage', datafield: 'tumor_stage', show: true,
   },
   {
-    label: 'Sample Type', field: 'group', api: 'subjectCountBySampletype', datafield: 'sample_type', show: true,
+    label: 'Sample Type', field: 'group', api: 'subjectCountBySampleType', datafield: 'sample_types', show: true,
   },
 ];
 
@@ -72,7 +72,7 @@ export const widgetsData = [
   {
     type: 'donut',
     label: 'Sample Type',
-    dataName: 'subjectCountBySampletype',
+    dataName: 'subjectCountBySampleType',
     datatable_field: 'sample_type',
     show: true,
   },
@@ -99,23 +99,29 @@ export const dashboardTable = {
       display: true,
     },
     {
-      dataField: 'program',
+      dataField: 'program_id',
+      header: 'Program ID',
+      sort: 'asc',
+      display: false,
+    },
+    {
+      dataField: 'program_acronym',
       header: 'Program Acronym',
       sort: 'asc',
-      link: '/program/{program}',
+      link: '/program/{program_id}',
       display: true,
     },
     {
       dataField: 'project_acronym',
       header: 'Project Acronym',
       sort: 'asc',
-      display: false,
+      link: '/arm/{project_acronym}',
+      display: true,
     },
     {
-      dataField: 'project_acronym',
+      dataField: 'project_info',
       header: 'Project Name',
       sort: 'asc',
-      link: '/arm/{project_acronym}',
       display: true,
     },
     {
@@ -165,39 +171,47 @@ export const GET_DASHBOARD_DATA_QUERY = gql`{
   numberOfSamples
   numberOfLabProcedures
   numberOfFiles
-  subjectCountByProgram {
-    group
-    subjects
-}
-subjectCountByProject {
-    group
-    subjects
-}
+   subjectCountByProgram {
+        group
+        subjects
+    }
+    subjectCountByProject {
+        group
+        subjects
+    }
 
-subjectCountByGender {
-    group
-    subjects
-}
-subjectCountByRace {
-    group
-    subjects
-}
-subjectCountByEthnicity {
-    group
-    subjects
-}
-subjectCountByVitalStatus {
-    group
-    subjects
-}
-subjectCountByTumorStage{
-    group
-    subjects
-}
-subjectCountBySampletype{
-    group
-    subjects
-}
+    subjectCountByGender {
+        group
+        subjects
+    }
+    subjectCountByRace {
+        group
+        subjects
+    }
+    subjectCountByEthnicity {
+        group
+        subjects
+    }
+    subjectCountByVitalStatus {
+        group
+        subjects
+    }
+    subjectCountByTumorStage{
+        group
+        subjects
+    }
+    subjectCountBySampleType{
+        group
+        subjects
+    }
+    subjectCountByFileType{
+        group
+        subjects
+    }
+    subjectCountByFileDescription{
+        group
+        subjects
+    }
 
   armsByPrograms {
       program
@@ -209,26 +223,28 @@ subjectCountBySampletype{
       }
 
   }
-
-subjectOverViewPaged(first: 100) {
+  subjectOverViewPaged(first: 100) {
   subject_id,
-  program,
+  program_acronym,
+  program_name,
   program_id,
   project_acronym,
+  project_info,
   tumor_stage,
   gender,
   race,
   ethnicity,
+  age,
   vital_status,
-  sample_type,
+  num_samples,
+  sample_types,
   lab_procedures,
   samples,
-  age,
-  project_info,
   files {
         file_id
   }
 }
+
   }`;
 
 // --------------- Dashboard Query configuration --------------
@@ -236,19 +252,21 @@ export const GET_DASHBOARD_TABLE_DATA_QUERY = gql`{
 
   subjectOverViewPaged(first: 10000) {
     subject_id,
-    program,
+    program_acronym,
+    program_name,
     program_id,
     project_acronym,
+    project_info,
     tumor_stage,
     gender,
     race,
     ethnicity,
+    age,
     vital_status,
-    sample_type,
+    num_samples,
+    sample_types,
     lab_procedures,
     samples,
-    age,
-    project_info,
     files {
           file_id
     }
