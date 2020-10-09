@@ -32,7 +32,7 @@ const Programs = ({ classes, data }) => {
       dispatch(singleCheckBox([{
         groupName: 'Program',
         name: trial,
-        datafield: 'program',
+        datafield: 'program_acronym',
         isChecked: true,
       }]));
     });
@@ -58,7 +58,7 @@ const Programs = ({ classes, data }) => {
                 />
               </span>
             )
-              : column.dataField === 'num_subjects' ? <Link className={classes.link} to={(location) => ({ ...location, pathname: '/cases' })} onClick={() => redirectTo('TAILORx')}>{value}</Link>
+              : column.dataField === 'num_subjects' ? <Link className={classes.link} to={(location) => ({ ...location, pathname: '/cases' })} onClick={() => redirectTo('TARGET')}>{value}</Link>
                 : `${value}`
 }
         </div>

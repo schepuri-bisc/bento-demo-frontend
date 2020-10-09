@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
   Grid,
   withStyles,
@@ -22,41 +22,11 @@ import { singleCheckBox, fetchDataForDashboardDataTable } from '../dashboard/das
 import CustomBreadcrumb from '../../components/Breadcrumb/BreadcrumbView';
 import Widget from '../../components/Widgets/WidgetView';
 import CustomActiveDonut from '../../components/Widgets/PieCharts/CustomActiveDonut/CustomActiveDonutController';
-import {
-  filterData,
-  getDonutDataFromDashboardData,
-} from '../../utils/dashboardUtilFunctions';
 
 const ProgramView = ({ classes, data, theme }) => {
   const programData = data.programDetail;
 
   const dispatch = useDispatch();
-
-  const widgetData = useSelector((state) => (
-    state.dashboard
-      && state.dashboard.subjectOverView
-       && state.dashboard.subjectOverView.data
-      ? (
-        function extraData(d) {
-          return {
-            diagnosis: getDonutDataFromDashboardData(d, 'diagnosis'),
-            file: programData.num_files,
-          };
-        }(state.dashboard.subjectOverView.data.filter(
-          (d) => (filterData(d,
-            [{
-              groupName: 'Program',
-              name: programData.program_acronym,
-              datafield: 'program',
-              isChecked: true,
-            }])
-          ),
-        ))
-      )
-      : {
-        diagnosis: [],
-        file: 0,
-      }));
 
   // initDashboardStatus will be used in dispatch to
   // make sure dashboard data has be loaded first.
@@ -74,7 +44,7 @@ const ProgramView = ({ classes, data, theme }) => {
       dispatch(singleCheckBox([{
         groupName: 'Program',
         name: programData.program_acronym,
-        datafield: 'program',
+        datafield: 'program_acronym',
         isChecked: true,
       }]));
     });
@@ -83,9 +53,9 @@ const ProgramView = ({ classes, data, theme }) => {
   const redirectToArm = (programArm) => {
     dispatch(initDashboardStatus()).then(() => {
       dispatch(singleCheckBox([{
-        groupName: 'Arm',
+        groupName: 'Project',
         name: programArm,
-        datafield: 'study_info',
+        datafield: 'project_info',
         isChecked: true,
       }]));
     });
@@ -360,7 +330,7 @@ const ProgramView = ({ classes, data, theme }) => {
                       noPaddedTitle
                     >
                       <CustomActiveDonut
-                        data={widgetData[rightPanel.widget[0].dataField]}
+                        data={programData[rightPanel.widget[0].dataField]}
                         width={400}
                         height={225}
                         innerRadius={50}

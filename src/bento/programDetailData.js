@@ -73,8 +73,8 @@ const leftPanel = {
 const rightPanel = {
   widget: [
     {
-      dataField: 'diagnosis',
-      label: 'Diagnosis',
+      dataField: 'sample_types',
+      label: 'Sample Types',
       display: true,
     },
   ],
@@ -141,6 +141,11 @@ query programDetail($program_id: String!) {
     num_files
     num_samples
     num_lab_procedures
+    num_projects
+    sample_types {
+      group
+      subjects
+    }
     projects {
         project_acronym,
         project_name,
