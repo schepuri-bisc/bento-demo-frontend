@@ -28,6 +28,12 @@ export const facetSearchData = [
   {
     label: 'Sample Type', field: 'group', api: 'subjectCountBySampleType', datafield: 'sample_types', show: true,
   },
+  {
+    label: 'File Type', field: 'group', api: 'subjectCountByFileType', type: 'object', datafield: 'files', objField: 'file_type', show: true,
+  },
+  {
+    label: 'File Description', field: 'group', api: 'subjectCountByFileDescription', type: 'object', datafield: 'files', objField: 'file_description', show: true,
+  },
 ];
 
 // --------------- Dashboard Widgets configuration --------------
@@ -242,6 +248,8 @@ export const GET_DASHBOARD_DATA_QUERY = gql`{
   samples,
   files {
         file_id
+        file_description
+        file_format
   }
 }
 
@@ -269,6 +277,8 @@ export const GET_DASHBOARD_TABLE_DATA_QUERY = gql`{
     samples,
     files {
           file_id
+          file_description
+          file_type
     }
 }
   }`;

@@ -41,6 +41,8 @@ export const unselectFilters = (filtersObj) => filtersObj.map((filterElement) =>
   groupName: filterElement.groupName,
   name: filterElement.name,
   datafield: filterElement.datafield,
+  objField: filterElement.objField,
+  type: filterElement.type,
   isChecked: false,
 }));
 
@@ -200,7 +202,13 @@ export const filterData = (row, filters) => {
     } else if (row[filter.datafield]) { // check if data has this attribute
       // array includes
       const fName = (filter.name === NOT_PROVIDED ? '' : filter.name);
-      if (Array.isArray(row[filter.datafield])) {
+      if (typeof row[filter.datafield] === 'object' && filter.type === 'object') {
+        if (row[filter.datafield].some((item) => item[filter.objField] === fName)) {
+          groups[filter.groupName] = true;
+        } else {
+          groups[filter.groupName] = false;
+        }
+      } else if (Array.isArray(row[filter.datafield])) {
         if (row[filter.datafield].includes(fName)) {
           groups[filter.groupName] = true;
         } else {
@@ -311,8 +319,19 @@ export const getCheckBoxData = (data, allCheckBoxs, activeCheckBoxs, filters) =>
         subData.forEach((d) => {
           const fName = (item.name === NOT_PROVIDED ? '' : item.name);
           if (d[checkbox.datafield]) {
-            // value in the array
+            // value in the Object
             if (Array.isArray(d[checkbox.datafield])) {
+              if (d[checkbox.datafield].includes(fName)) {
+                item.subjects.push(d.subject_id);
+              }
+            }
+            if (typeof d[checkbox.datafield] === 'object' && checkbox.type === 'object') {
+              if (d[checkbox.datafield].some((objItem) => objItem[checkbox.objField] === fName)) {
+                item.subjects.push(d.subject_id);
+              }
+            }
+            // value in the array
+            if (Array.isArray(d[checkbox.datafield]) && checkbox.type !== 'object') {
               if (d[checkbox.datafield].includes(fName)) {
                 item.subjects.push(d.subject_id);
               }
@@ -396,6 +415,8 @@ export function customCheckBox(data) {
       groupName: mapping.label,
       checkboxItems: transformAPIDataIntoCheckBoxData(data[mapping.api], mapping.field),
       datafield: mapping.datafield,
+      objField: mapping.objField ? mapping.objField : '',
+      type: mapping.type ? mapping.type : 'notObject',
       show: mapping.show,
     }))
   );

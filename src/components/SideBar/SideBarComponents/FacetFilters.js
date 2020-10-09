@@ -65,7 +65,9 @@ const FacetPanel = ({ classes }) => {
       groupName: valueList[1],
       name: valueList[0],
       datafield: valueList[2],
-      isChecked: !(valueList[3] === 'true'),
+      objField: valueList[3],
+      type: valueList[4],
+      isChecked: !(valueList[5] === 'true'),
     }]));
   };
 
@@ -104,7 +106,7 @@ const FacetPanel = ({ classes }) => {
               return (
                 <ListItem
                   button
-                  onClick={handleToggle(`${checkboxItem.name}$$${sideBarItem.groupName}$$${sideBarItem.datafield}$$${checkboxItem.isChecked}`)}
+                  onClick={handleToggle(`${checkboxItem.name}$$${sideBarItem.groupName}$$${sideBarItem.datafield}$$${sideBarItem.objField}$$${sideBarItem.type}$$${checkboxItem.isChecked}`)}
                   className={classes.nested}
                   classes={{ gutters: classes.listItemGutters }}
                 >
