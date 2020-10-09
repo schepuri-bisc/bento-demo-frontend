@@ -37,8 +37,8 @@ export const widgetsData = [
     type: 'sunburst',
     label: 'Program and Project',
     dataName: 'armsByPrograms',
-    datatable_level1_field: 'program',
-    datatable_level2_field: 'gender',
+    datatable_level1_field: 'program_acronym',
+    datatable_level2_field: 'project_acronym',
     show: true,
   },
   {
