@@ -88,13 +88,13 @@ const Programs = ({ classes, data }) => {
             ? (
               <TableRow>
                 <TablePagination
-                  className={classes.root}
-                  count={count}
-                  page={page}
-                  rowsPerPage={rowsPerPage}
-                  onChangeRowsPerPage={(event) => changeRowsPerPage(event.target.value)}
+                    className={classes.root}
+                    count={count}
+                    page={page}
+                    rowsPerPage={rowsPerPage}
+                    onChangeRowsPerPage={(event) => changeRowsPerPage(event.target.value)}
               // eslint-disable-next-line no-shadow
-                  onChangePage={(_, page) => changePage(page)}
+                    onChangePage={(_, page) => changePage(page)}
                 />
               </TableRow>
             )
