@@ -20,15 +20,6 @@ export const facetSearchData = [
     label: 'Ethnicity', field: 'group', api: 'subjectCountByEthnicity', datafield: 'ethnicity', show: true,
   },
   {
-    label: 'Vital Status', field: 'group', api: 'subjectCountByVitalStatus', datafield: 'vital_status', show: true,
-  },
-  {
-    label: 'Tumor Stage', field: 'group', api: 'subjectCountByTumorStage', datafield: 'tumor_stage', show: true,
-  },
-  {
-    label: 'Sample Type', field: 'group', api: 'subjectCountBySampleType', datafield: 'sample_types', show: true,
-  },
-  {
     label: 'File Type', field: 'group', api: 'subjectCountByFileType', type: 'object', datafield: 'files', objField: 'file_type', show: true,
   },
   {
@@ -59,27 +50,6 @@ export const widgetsData = [
     label: 'Race',
     dataName: 'subjectCountByRace',
     datatable_field: 'race',
-    show: true,
-  },
-  {
-    type: 'donut',
-    label: 'Vital Status',
-    dataName: 'subjectCountByVitalStatus',
-    datatable_field: 'vital_status',
-    show: true,
-  },
-  {
-    type: 'donut',
-    label: 'Tumor Stage',
-    dataName: 'subjectCountByTumorStage',
-    datatable_field: 'tumor_stage',
-    show: true,
-  },
-  {
-    type: 'donut',
-    label: 'Sample Type',
-    dataName: 'subjectCountBySampleType',
-    datatable_field: 'sample_type',
     show: true,
   },
 ];

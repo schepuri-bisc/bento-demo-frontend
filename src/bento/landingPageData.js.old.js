@@ -47,7 +47,7 @@ export const landingPageData = {
     alt: '',
     img: 'https://raw.githubusercontent.com/CBIIT/bento-frontend/master/src/assets/landing/tileProgam.png',
     titleText: 'Programs',
-    descriptionText: 'Access data from the TAILORx clinical trial, on this data sharing platform, built on Bento.',
+    descriptionText: 'Access program data stored in Bento.',
     callToActionText: 'View',
     callToActionLink: '/programs', // This links to the Programs Listing Page.
   },
@@ -63,7 +63,7 @@ export const landingPageData = {
     alt: '',
     img: 'https://raw.githubusercontent.com/CBIIT/bento-frontend/master/src/assets/landing/tileCases.png',
     titleText: 'Cases',
-    descriptionText: 'Analyze cases from the TAILORx clinical trial.',
+    descriptionText: 'Analyze data from cases stored in Bento.',
     callToActionText: 'Explore',
     callToActionLink: '/cases', // This links to the cases dashboard.
   },
