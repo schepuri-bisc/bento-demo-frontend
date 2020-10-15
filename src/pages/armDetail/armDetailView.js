@@ -113,7 +113,7 @@ const ArmDetail = ({ data, classes }) => {
   ));
   const stat = {
     numberOfPrograms: 1,
-    numberOfStudies: 1,
+    numberOfProjects: 1,
     numberOfSubjects: data.num_subjects,
     numberOfSamples: data.num_samples,
     numberOfLabProcedures: data.num_lab_procedures,
