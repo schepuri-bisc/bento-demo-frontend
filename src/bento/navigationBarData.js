@@ -11,7 +11,7 @@ export default [
     link: '/programs',
   },
   {
-    labelText: 'dashboard',
+    labelText: 'Search',
     type: 'link',
     link: '/cases',
   },
